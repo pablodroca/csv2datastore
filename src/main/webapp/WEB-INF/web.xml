@@ -1,0 +1,22 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"  version="2.5">
+    <servlet>
+        <servlet-name>SystemServiceServlet</servlet-name>
+        <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+        <init-param>
+            <param-name>services</param-name>
+            <param-value>ar.devfest.csv2datastore.RegistersDataAPI</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<servlet-class>ar.devfest.csv2datastore.FileUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<url-pattern>/file</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SystemServiceServlet</servlet-name>
+        <url-pattern>/_ah/spi/*</url-pattern>
+    </servlet-mapping>
+</web-app>
